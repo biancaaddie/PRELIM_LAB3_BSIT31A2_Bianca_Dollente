@@ -1,12 +1,13 @@
 ﻿@model List<IDescribable>
-<body>
-    <h2>Customer List</h2>
+
+<div class="main-content">
+    <h2>👩‍💼 Customer List</h2>
+    <hr />
 
     <ul>
         @foreach (var customer in Model)
         {
-            <li>@customer.Describe() </li>
+            <li>@customer.Describe()</li>
         }
     </ul>
-</body>
-
+</div>
