@@ -2,11 +2,11 @@
 {
     public class PremiumCustomer : Customer
     {
-            public string MembershipLevel { get; set; }
+            public bool IsVip { get; set; } = true;
 
             public override string Describe()
             {
-                return $"Premium Customer: {Name}, Email: {Email}, Level: {MembershipLevel}";
+                return $"VIP Customer, {GetFullName()} {GetAge()} {CustomerId}";
             }
         }
-}
+    }

@@ -1,13 +1,20 @@
-﻿@model List<IDescribable>
-
-<div class="main-content">
-    <h2>👩‍💼 Customer List</h2>
+﻿@{
+    var CustomerList = ViewBag.CustomerList as List<PRELIM_LAB3_BSIT31A2_Bianca_Dollente.Models.Customer>;
+}
+<div>
+    <h1>👩🏻‍💼Customer List</h1>
     <hr />
-
     <ul>
-        @foreach (var customer in Model)
+        @foreach (var customer in CustomerList)
         {
-            <li>@customer.Describe()</li>
+            if (customer is PRELIM_LAB3_BSIT31A2_Bianca_Dollente.Models.PremiumCustomer vip)
+            {
+                <li>@vip.Describe()</li>
+            }
+            else
+            {
+                <li>@customer.Describe()</li>
+            }
         }
-    </ul>
+        </ul>
 </div>

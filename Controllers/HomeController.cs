@@ -15,13 +15,32 @@ namespace PRELIM_LAB3_BSIT31A2_Bianca_Dollente.Controllers
 
         public IActionResult Index()
         {
-            List<IDescribable> customers = new List<IDescribable>
+            var customerList = new List<Customer>();
+
+            var regular = new Customer
             {
-                new Customer { Id = 1, Name = "Bianca Adrienne", Email = "biancaadrienne24@gmail.com" },
-                new PremiumCustomer { Id = 2, Name = "Adrienne Claveria", Email = "adriennedollente@gmail.com", MembershipLevel = "Gold" }
+                FirstName = "Bianca Adrienne",
+                MiddleName = "Claveria",
+                LastName = "Dollente",
+                BirthDay = new DateTime(2005, 1, 24),
+                CustomerId = 1001
             };
 
-            return View(customers);
+            var vip = new PremiumCustomer
+            {
+                FirstName = "Kirby",
+                MiddleName = "Lecaroz",
+                LastName = "Claveria",
+                BirthDay = new DateTime(2010, 3, 15),
+                CustomerId = 2001
+            };
+
+            customerList.Add(regular);
+            customerList.Add(vip);
+
+            ViewBag.CustomerList = customerList;
+
+            return View();
         }
 
         public IActionResult Privacy()
